@@ -1,0 +1,12 @@
+{
+  "name": "apple",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "isaacbell <isaacbell388@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "esbuild": "^0.18.11",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}
