@@ -1,12 +1,17 @@
 {
-  "name": "apple",
+  "name": "demo",
   "version": "1.0.0",
   "main": "index.js",
   "author": "isaacbell <isaacbell388@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "esbuild": "^0.18.11",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
-  }
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.14.1",
+    "remount": "^1.0.0",
+    "esbuild": "^0.18.11"
+  },
+  "scripts": {
+    "build": "esbuild ./app/javascript/react/src/index.js --bundle --minify --sourcemap --outfile=./app/assets/builds/bundle.js"
+  }  
 }

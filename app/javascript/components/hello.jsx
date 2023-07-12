@@ -1,5 +1,5 @@
 import React from "react";
 
-const Hello = () => <div>HELLO WORLD!</div>
+const Hello = () => <h1>HELLO WORLD!!!</h1>
 
 export default Hello;
