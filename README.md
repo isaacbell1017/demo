@@ -30,6 +30,7 @@ cd demo
 
 ```
 yarn install
+bundle install
 ```
 
 4. Start the application:
