@@ -68,6 +68,8 @@ GEM
       tzinfo (~> 2.0)
     addressable (2.8.4)
       public_suffix (>= 2.0.2, < 6.0)
+    area (0.10.0)
+      fastercsv (~> 1.5)
     ast (2.4.2)
     bindex (0.8.1)
     bootsnap (1.16.0)
@@ -95,6 +97,8 @@ GEM
       html2haml
     erubi (1.12.0)
     erubis (2.7.0)
+    fastercsv (1.5.5)
+    geocoder (1.8.2)
     globalid (1.1.0)
       activesupport (>= 5.0)
     haml (6.1.1)
@@ -280,11 +284,13 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  area (~> 0.10.0)
   bootsnap
   cancancan (~> 3.5)
   capybara
-  debug
+  debug (>= 1.0.0)
   erb2haml (~> 0.1.5)
+  geocoder (~> 1.8)
   haml (~> 6.1)
   httparty (~> 0.21.0)
   importmap-rails
