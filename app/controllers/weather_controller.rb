@@ -6,7 +6,7 @@ class WeatherController < ApplicationController
   def forecast
     location = params.require(:location).to_s
 
-    zip_code = location =~ /\D/ ? location.to_zip.first : location
+    zip_code = location.presence&.size == 5 && location =~ /\D/ ? get_zip_from_location(location) : location
 
     if json = $redis.get(zip_code)
       weather = JSON.parse(json).with_indifferent_access
@@ -18,5 +18,18 @@ class WeatherController < ApplicationController
     end
 
     render json: weather
+  end
+
+  private
+
+  def get_zip_from_location(str)
+    zip = str.match(/\d{5}/)&.to_s
+
+    # We won't assume we always get a well-formatted address with zip code
+    # If we receive a location string such as "New York", we can still convert it to a zip code
+    zip ||= location.to_zip.first
+    zip ||= Geocoder.search(location).first&.data&.send(:[], 'address')&.send(:[], 'postcode')
+
+    zip
   end
 end
