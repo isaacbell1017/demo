@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-#map { height: 450px; }
+.leaflet-container { height: 450px; }
 
 /*
 

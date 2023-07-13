@@ -1,12 +1,12 @@
-class Weather < ApplicationRecord
-	def weather_for(location)
+class Weather
+	def self.weather_for(location)
 		get(location)
 	end
 
 	private
 
 	def self.get(location)
-		response = HTTParty.get("http://api.weatherstack.com/forecast?access_key=#{api_key}&query=#{query}")
+		response = HTTParty.get("http://api.weatherstack.com/forecast?access_key=#{api_key}&query=#{location}")
 
 		response.parsed_response
 	end

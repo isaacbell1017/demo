@@ -10,7 +10,8 @@ const App = () => (
       <h1>Weather App</h1>
     </Header>
     <Content>
-      <div id="map" style={{height: '500px'}}></div>
+      <h1>asdfda</h1>
+      {/* <div id="map"></div> */}
       <CityMap />
     </Content>
     <Footer>

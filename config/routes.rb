@@ -1,7 +1,7 @@
 require "sidekiq/web"
 
 Rails.application.routes.draw do
-  # mount Sidekiq::Web => "/sidekiq"
+  get 'weather/forecast', to: 'weather#forecast', defaults: { format: 'json' }
 
   root 'home#index'
 end

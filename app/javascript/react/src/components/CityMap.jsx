@@ -1,9 +1,12 @@
-import React from 'react';
-import { MapContainer, TileLayer, useMap, Marker, Popup } from 'react-leaflet';
+import React, { useState } from 'react';
+import { Button, Modal, Row } from 'antd';
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import WeatherModal from './WeatherModal';
 
 const CityMap = () => {
-	console.log('here')
-  const [selectedCity, setSelectedCity] = React.useState(null);
+  const [selectedCity, setSelectedCity] = useState(null);
+  const [weather, setWeather] = useState(null);
+  const [isModalVisible, setIsModalVisible] = useState(false);
 
   const cities = [
     { name: 'New York', location: [40.7128, -74.0060] },
@@ -11,19 +14,49 @@ const CityMap = () => {
     // Add more cities as needed
   ];
 
+  const handlePopupClick = async (city) => {
+    setSelectedCity(city);
+    const response = await fetch(`/weather/forecast?location=${city.name}`);
+    const data = await response.json();
+    setWeather(data);
+    setIsModalVisible(true);
+  };
+
+  const handleOk = () => {
+    setIsModalVisible(false);
+  };
+
+  const handleCancel = () => {
+    setIsModalVisible(false);
+  };
+
   return (
-    <MapContainer center={[51.505, -0.09]} zoom={13} scrollWheelZoom={false}>
-			<TileLayer
-				attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-				url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-			/>
-			<Marker position={[51.505, -0.09]}>
-				<Popup>
-					A pretty CSS3 popup. <br /> Easily customizable.
-				</Popup>
-				{cities.map(city => <Popup key={city.name} position={city.location}>{city.name}</Popup>)}
-			</Marker>
-		</MapContainer>
+    <div className="map-container">
+      <MapContainer center={[39.8283, -98.5795]} zoom={4} scrollWheelZoom={false}>
+        <TileLayer
+          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        />
+        {cities.map(city => (
+          <Marker key={city.name} position={city.location}>
+            <Popup>
+              {city.name}
+              <br />
+              <br />
+              <Button onClick={() => handlePopupClick(city)} variant="contained" color="primary">
+                Get Forecast
+              </Button>
+            </Popup>
+          </Marker>
+        ))}
+      </MapContainer>
+			<WeatherModal 
+        isModalVisible={isModalVisible} 
+        handleOk={handleOk} 
+        handleCancel={handleCancel} 
+        weather={weather} 
+      />
+    </div>
   );
 }
 
