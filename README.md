@@ -68,7 +68,3 @@ Many configuration options were ignored for the purposes of this demo. For scala
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)
-
----
-
-Please replace `https://github.com/IsaacBell/demo.git` with the actual URL of your repository. You might also want to add more details to the README, such as a section about the technologies used in the project, screenshots of the application, or instructions for setting up the WeatherStack API.
