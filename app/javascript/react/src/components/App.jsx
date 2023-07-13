@@ -1,17 +1,25 @@
 import React from "react";
-import { Layout, Col, Row } from 'antd';
+import { Layout, Col, Row, Menu } from 'antd';
 import CityMap from "./CityMap";
 
 const { Header, Footer, Content } = Layout;
 
 const App = () => (
   <Layout>
-    <Header>
+    <Header style={{ display: 'flex', alignItems: 'center' }}>
       <h1>Weather App</h1>
+      <Menu
+        theme="dark"
+        mode="horizontal"
+        items={['Rails 7 Demo'].map((label, idx) => {
+          return {
+            label,
+            key: idx,
+          };
+        })}
+      />
     </Header>
     <Content>
-      <h1>asdfda</h1>
-      {/* <div id="map"></div> */}
       <CityMap />
     </Content>
     <Footer>
