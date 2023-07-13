@@ -5,6 +5,7 @@
   "author": "isaacbell <isaacbell388@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "@ant-design/icons": "^5.1.4",
     "antd": "^5.7.0",
     "esbuild": "^0.18.11",
     "jest": "^29.6.1",
