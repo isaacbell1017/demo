@@ -4,6 +4,11 @@
 
 .leaflet-container { height: 450px; }
 
+.ant-modal-footer .ant-btn-primary:not(:disabled) {
+  color: #fff !important;
+  background-color: #4096ff !important;
+}
+
 /*
 
 @layer components {

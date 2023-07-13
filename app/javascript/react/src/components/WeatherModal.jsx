@@ -1,5 +1,7 @@
 import React from 'react';
-import { Modal, Descriptions, Image } from 'antd';
+import { Modal, Descriptions, Image, Typography } from 'antd';
+
+const { Text } = Typography;
 
 const WeatherModal = ({ isModalVisible, handleOk, handleCancel, weather }) => {
   return (
@@ -11,6 +13,9 @@ const WeatherModal = ({ isModalVisible, handleOk, handleCancel, weather }) => {
     >
       {weather && (
         <Descriptions column={1}>
+					<Text type={weather.from_cache ? 'success' : 'danger'}>
+						{weather.from_cache ? 'Successfully retrieved from cache.' : 'Unable to retrieve from cache.' }
+					</Text>
           <Descriptions.Item label="Temperature">{weather.current.temperature}°C</Descriptions.Item>
           <Descriptions.Item label="Weather">
             <Image width={50} src={weather.current.weather_icons[0]} />
