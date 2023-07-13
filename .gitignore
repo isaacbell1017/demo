@@ -35,3 +35,6 @@
 
 node_modules/*
 todo.txt
+
+config/database.yml
+config/credentials.yml.enc
