@@ -1,3 +1,26 @@
+/*
+State Variables
+  selectedCity: The city that the user has selected. Initially null.
+  weather: The weather data for the selected city. Initially null.
+  isModalVisible: A boolean that determines whether the weather modal is visible. Initially false.
+  addressModalVisible: A boolean that determines whether the address modal is visible. Initially false.
+Constants
+  cities: An array of city objects. Each object has a name and a location (an array of latitude and longitude coordinates).
+  Functions
+  handlePopupClick(city): A function that is called when the user clicks on a city marker. It sets selectedCity to the clicked city, fetches the weather data for that city, sets weather to the fetched data, and sets isModalVisible to true.
+  handleOk(): A function that is called when the user clicks the "OK" button in the weather modal. It sets isModalVisible to false.
+  handleCancel(): A function that is called when the user clicks the "Cancel" button in the weather modal. It sets isModalVisible to false.
+  handleAddressSubmit(address): A function that is called when the user submits the address form. It fetches the weather data for the entered address, sets weather to the fetched data, sets isModalVisible to true, and sets addressModalVisible to false.
+Rendered Components
+  Button: A button that opens the address form when clicked.
+  MapContainer: A map component from the react-leaflet library. It contains a TileLayer and a Marker for each city in the cities array.
+  TileLayer: A tile layer component from the react-leaflet library.
+  Marker: A marker component from the react-leaflet library. It contains a Popup with the city name and a button that opens the weather modal when clicked.
+  Modal (address form): A modal component from the antd library. It contains the AddressForm component and is visible when addressModalVisible is true.
+  AddressForm: A custom component that displays an address form. It calls handleAddressSubmit when the form is submitted.
+  WeatherModal: A custom component that displays the weather data for the selected city. It is visible when isModalVisible is true.
+*/
+
 import React, { useState } from 'react';
 import { Button, Modal } from 'antd';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
@@ -90,7 +113,7 @@ const CityMap = () => {
           </Marker>
         ))}
       </MapContainer>
-      
+
       <Modal
         title="Enter Your Address"
         visible={addressModalVisible}

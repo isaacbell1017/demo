@@ -8,7 +8,7 @@ module.exports = {
   },
 	transformIgnorePatterns: [
 		"node_modules/(?!(react-leaflet)/)"
-	],	
+	],
 	moduleNameMapper: {
 		"react-leaflet": "<rootDir>/app/javascript/react/src/test/mocks/reactLeafletMock.js"
 	},

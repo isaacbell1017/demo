@@ -1,3 +1,9 @@
+=begin
+
+Currently not used.
+
+=end
+
 # frozen_string_literal: true
 
 class Ability

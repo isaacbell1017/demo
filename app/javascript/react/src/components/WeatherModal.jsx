@@ -1,9 +1,22 @@
+/*
+Props
+  isModalVisible: A boolean that determines whether the modal is visible.
+  handleOk: A function that is called when the user clicks the "OK" button in the modal.
+  handleCancel: A function that is called when the user clicks the "Cancel" button in the modal.
+  weather: The weather data for the selected city.
+Rendered Components
+  Modal: A modal component from the antd library. It is visible when isModalVisible is true and calls handleOk or handleCancel when the "OK" or "Cancel" button is clicked, respectively. It contains a Descriptions component if weather is not null.
+  Descriptions: A descriptions component from the antd library. It contains several Descriptions.Item components that display various pieces of weather data, such as the temperature, weather description, wind speed, wind direction, pressure, humidity, UV index, and visibility. It also contains a Text component that displays a success message if the weather data was retrieved from the cache, or a danger message if it was not
+*/
+
 import React from 'react';
 import { Modal, Descriptions, Image, Typography } from 'antd';
 
 const { Text } = Typography;
 
 const WeatherModal = ({ isModalVisible, handleOk, handleCancel, weather }) => {
+	if (!weather) return <></>;
+
   return (
     <Modal 
       title={`Weather for ${weather?.location?.name}`} 
