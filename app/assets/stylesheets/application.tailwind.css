@@ -2,8 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
+.map-address-btn {
+  background-color: rgb(22, 119, 255);
+  position: fixed;
+  top: 40vh;
+  left: 2vw;
+  z-index: 99999;
+}
+
 .leaflet-container { height: 450px; }
 
+.ant-form .ant-btn-primary:not(:disabled),
 .ant-modal-footer .ant-btn-primary:not(:disabled) {
   color: #fff !important;
   background-color: #4096ff !important;
