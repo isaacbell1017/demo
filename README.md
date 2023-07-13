@@ -6,6 +6,8 @@ The application uses the `react-leaflet` library to display an interactive map a
 
 Note that while Devise and CanCan are installed, all authentication features have been avoided for simplicity.
 
+https://github.com/IsaacBell/demo/assets/2613157/a606b937-3ba5-4ee2-9418-06eb696da2a4
+
 ## Features
 
 - Interactive map of the United States with markers for selected cities.
