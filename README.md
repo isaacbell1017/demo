@@ -47,6 +47,30 @@ The application will start on `localhost:3000`.
 
 To use the application, click on a city marker on the map. A button will appear in a popup above the marker. Click on the "Get Forecast" button to retrieve weather information for that city. The weather information will be displayed in a modal window.
 
+## Application
+
+The entry point for React code is `app/javascript/react/src`. There are four components:
+
+- App: a layout and entry point
+- AddressForm: form and input
+- CityMap: renders the map and popup markers
+- WeatherModal: is displayed when we check the 
+
+When a zip code is submitted, a request is sent to the `Weather#forecast` controller action. There, cache storage and retrieval is performed using Redis.
+
+There is only one model on the back end: `Weather`. It calls the Weatherstack API.
+
+```
+Class Weather
+
+Public Class Methods
+	weather_for(location): returns the weather for that location. It does this by calling the private get method with the location as an argument.
+	
+Private Class Methods
+	get(location): makes a HTTP GET request to the Weatherstack API to get the weather for that location. It parses the response and returns it. If the response is nil, it returns an empty hash.
+	api_key(): returns the API key for the Weatherstack API. Raises an exception if the API key is not set.
+```
+
 ## Testing
 
 The application uses Rspec and Jest for testing. To run the tests, use the following commands:
