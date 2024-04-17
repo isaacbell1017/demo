@@ -19,7 +19,7 @@ https://github.com/IsaacBell/demo/assets/2613157/a606b937-3ba5-4ee2-9418-06eb696
 1. Clone the repository:
 
 ```
-git clone https://github.com/IsaacBell/demo.git
+git clone https://github.com/isaacbell1017/demo.git
 ```
 
 2. Navigate to the project directory:
